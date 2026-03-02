@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 217 91% 96%;
+    --accent-foreground: 217 91% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom palette */
+    --blue: 217 91% 50%;
+    --blue-light: 217 91% 96%;
+    --green: 152 69% 41%;
+    --green-light: 152 69% 95%;
+    --orange: 25 95% 53%;
+    --orange-light: 25 95% 95%;
+    --purple: 262 83% 58%;
+    --purple-light: 262 83% 96%;
+    --teal: 173 80% 36%;
+    --teal-light: 173 80% 94%;
+
+    /* Section backgrounds */
+    --surface-warm: 30 40% 98%;
+    --surface-cool: 217 50% 97%;
+    --surface-mint: 152 40% 97%;
+    --surface-blue-deep: 217 80% 12%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-bold;
+  }
+}
+
+@layer utilities {
+  .surface-warm {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .surface-cool {
+    background-color: hsl(var(--surface-cool));
+  }
+
+  .surface-mint {
+    background-color: hsl(var(--surface-mint));
+  }
+
+  .surface-dark {
+    background-color: hsl(var(--surface-blue-deep));
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
