@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface Project {
   number: string;
@@ -27,7 +28,7 @@ const projects: Project[] = [
     tags: "ERP · LMS · Multi-Tenant",
     topGradient: "bg-gradient-to-r from-blue via-blue-600 to-indigo-600",
     accentGlow: "bg-blue/15",
-    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15",
+    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15 cursor-pointer",
     description: (
       <>
         An enterprise multi-tenant platform built as Team Lead, uniting{" "}
@@ -52,7 +53,7 @@ const projects: Project[] = [
     tags: "Education · SaaS · AI",
     topGradient: "bg-gradient-to-r from-blue via-blue-600 to-indigo-600",
     accentGlow: "bg-blue/15",
-    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15",
+    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15 cursor-pointer",
     description: (
       <>
         A complete multi-tenant education SaaS platform built independently through Agaran for{" "}
@@ -77,7 +78,7 @@ const projects: Project[] = [
     tags: "Learn While Playing · SaaS",
     topGradient: "bg-gradient-to-r from-blue via-blue-600 to-indigo-600",
     accentGlow: "bg-blue/15",
-    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15",
+    cardBgStyle: "bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15 cursor-pointer",
     description: (
       <>
         An interactive platform designed to help students{" "}
@@ -98,6 +99,7 @@ const projects: Project[] = [
 const SampleWorkSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -121,11 +123,9 @@ const SampleWorkSection: React.FC = () => {
     }
   };
 
-  const handleScrollToWork = () => {
-    const el = document.getElementById("sample-work");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavigateToWorkPage = () => {
+    navigate("/work");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -164,6 +164,7 @@ const SampleWorkSection: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.number}
+                onClick={handleNavigateToWorkPage}
                 className={`group relative rounded-2xl border p-6 sm:p-7 flex flex-col justify-between text-left gap-5 transition-all duration-300 hover:-translate-y-2 overflow-hidden shrink-0 w-[86vw] sm:w-[420px] md:w-auto snap-center ${project.cardBgStyle}`}
               >
                 {/* Top Gradient Accent Bar */}
@@ -239,8 +240,8 @@ const SampleWorkSection: React.FC = () => {
         {/* 5. Bottom CTA Button */}
         <div className="pt-2">
           <button
-            onClick={handleScrollToWork}
-            className="group inline-flex items-center justify-center gap-2 bg-blue text-white font-semibold text-sm px-8 py-3.5 rounded-xl shadow-md shadow-blue/20 hover:shadow-lg hover:shadow-blue/30 hover:-translate-y-0.5 transition-all duration-200"
+            onClick={handleNavigateToWorkPage}
+            className="group inline-flex items-center justify-center gap-2 bg-blue text-white font-semibold text-sm px-8 py-3.5 rounded-xl shadow-md shadow-blue/20 hover:shadow-lg hover:shadow-blue/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <span>View All Work →</span>
           </button>
@@ -252,4 +253,5 @@ const SampleWorkSection: React.FC = () => {
 };
 
 export default SampleWorkSection;
+
 

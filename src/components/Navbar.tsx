@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface NavbarProps {
   onBookDemo: () => void;
@@ -7,28 +8,57 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleScrollTo = (id: string) => {
+  const handleBrandClick = () => {
     setMobileMenuOpen(false);
-    if (id === "top") {
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
     }
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  const handleNavWork = () => {
+    setMobileMenuOpen(false);
+    if (location.pathname !== "/work") {
+      navigate("/work");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleScrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const yOffset = -80;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-border/60 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-border/60 transition-all font-sans">
       <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-10 lg:px-16 xl:px-24 h-14 sm:h-16 flex items-center justify-between">
         
         {/* Left: Brand Logo */}
         <button
-          onClick={() => handleScrollTo("top")}
+          onClick={handleBrandClick}
           className="flex items-center gap-3 group text-left cursor-pointer focus:outline-hidden"
         >
           <div className="relative shrink-0">
@@ -55,19 +85,23 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex items-center gap-8">
             <button
-              onClick={() => handleScrollTo("sample-work")}
-              className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-blue transition-colors cursor-pointer"
+              onClick={handleNavWork}
+              className={`text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                location.pathname === "/work"
+                  ? "text-blue font-bold"
+                  : "text-foreground/80 hover:text-blue"
+              }`}
             >
               Work
             </button>
             <button
-              onClick={() => handleScrollTo("experience")}
+              onClick={() => handleScrollToSection("experience")}
               className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-blue transition-colors cursor-pointer"
             >
               Experience
             </button>
             <button
-              onClick={() => handleScrollTo("about")}
+              onClick={() => handleScrollToSection("about")}
               className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-blue transition-colors cursor-pointer"
             >
               About
@@ -109,19 +143,19 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-border/80 px-6 py-4 flex flex-col gap-4 animate-in fade-in-50 duration-200">
           <button
-            onClick={() => handleScrollTo("sample-work")}
+            onClick={handleNavWork}
             className="text-left text-sm font-semibold text-foreground/90 hover:text-blue py-1.5 border-b border-border/40"
           >
             Work
           </button>
           <button
-            onClick={() => handleScrollTo("experience")}
+            onClick={() => handleScrollToSection("experience")}
             className="text-left text-sm font-semibold text-foreground/90 hover:text-blue py-1.5 border-b border-border/40"
           >
             Experience
           </button>
           <button
-            onClick={() => handleScrollTo("about")}
+            onClick={() => handleScrollToSection("about")}
             className="text-left text-sm font-semibold text-foreground/90 hover:text-blue py-1.5"
           >
             About
@@ -133,3 +167,4 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
 };
 
 export default Navbar;
+
