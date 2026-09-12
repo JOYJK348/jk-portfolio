@@ -20,6 +20,16 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
     }
   };
 
+  const handleNavHome = () => {
+    setMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const handleNavWork = () => {
     setMobileMenuOpen(false);
     if (location.pathname !== "/work") {
@@ -85,6 +95,16 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex items-center gap-8">
             <button
+              onClick={handleNavHome}
+              className={`text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                location.pathname === "/"
+                  ? "text-blue font-bold"
+                  : "text-foreground/80 hover:text-blue"
+              }`}
+            >
+              Home
+            </button>
+            <button
               onClick={handleNavWork}
               className={`text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
                 location.pathname === "/work"
@@ -143,8 +163,18 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo }) => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-border/80 px-6 py-4 flex flex-col gap-4 animate-in fade-in-50 duration-200">
           <button
+            onClick={handleNavHome}
+            className={`text-left text-sm font-semibold py-1.5 border-b border-border/40 ${
+              location.pathname === "/" ? "text-blue font-bold" : "text-foreground/90 hover:text-blue"
+            }`}
+          >
+            Home
+          </button>
+          <button
             onClick={handleNavWork}
-            className="text-left text-sm font-semibold text-foreground/90 hover:text-blue py-1.5 border-b border-border/40"
+            className={`text-left text-sm font-semibold py-1.5 border-b border-border/40 ${
+              location.pathname === "/work" ? "text-blue font-bold" : "text-foreground/90 hover:text-blue"
+            }`}
           >
             Work
           </button>

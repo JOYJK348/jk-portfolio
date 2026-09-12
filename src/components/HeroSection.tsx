@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   ChevronRight,
@@ -7,11 +8,18 @@ import {
 } from "lucide-react";
 
 const HeroSection: React.FC<{ onBookDemo?: () => void }> = () => {
+  const navigate = useNavigate();
+
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleViewMyWork = () => {
+    navigate("/work");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -46,7 +54,7 @@ const HeroSection: React.FC<{ onBookDemo?: () => void }> = () => {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <span className="px-4 py-1.5 rounded-full bg-blue/10 border border-blue/20 text-xs font-bold text-blue flex items-center gap-2 shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-blue" />
-            AI Systems Specialist
+            Software Engineer & Entrepreneur
           </span>
           <span className="px-4 py-1.5 rounded-full bg-green/10 border border-green/20 text-xs font-bold text-green flex items-center gap-2 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
@@ -79,8 +87,8 @@ const HeroSection: React.FC<{ onBookDemo?: () => void }> = () => {
         {/* 7. Centered CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
           <button
-            onClick={() => handleScrollTo("sample-work")}
-            className="inline-flex items-center justify-center gap-2 bg-blue text-white font-semibold text-sm px-8 py-3.5 rounded-xl shadow-md shadow-blue/20 hover:shadow-lg hover:shadow-blue/30 hover:-translate-y-0.5 transition-all duration-200"
+            onClick={handleViewMyWork}
+            className="inline-flex items-center justify-center gap-2 bg-blue text-white font-semibold text-sm px-8 py-3.5 rounded-xl shadow-md shadow-blue/20 hover:shadow-lg hover:shadow-blue/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <span>VIEW MY WORK</span>
             <ArrowRight size={16} />

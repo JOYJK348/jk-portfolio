@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import SampleWorkSection from "@/components/SampleWorkSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import AboutSection from "@/components/AboutSection";
@@ -19,7 +18,6 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar onBookDemo={openDemo} />
       <HeroSection onBookDemo={openDemo} />
-      <SampleWorkSection />
       <ExpertiseSection />
       <ExperienceSection />
       <AboutSection />

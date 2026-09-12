@@ -684,34 +684,55 @@ const WorkPage: React.FC = () => {
           </div>
 
 
-          {/* 4 COLUMNS EDITORIAL GRID ON DESKTOP & MOBILE TOUCH-SWIPEABLE CAROUSEL ON MOBILE */}
-          <div className="w-full border-y border-border/70 py-6 sm:py-8">
+          {/* 4 COLUMNS CARDS GRID ON DESKTOP & MOBILE TOUCH-SWIPEABLE CAROUSEL ON MOBILE */}
+          <div className="w-full pt-4 relative">
             <div
               ref={featuredScrollRef}
               onScroll={handleFeaturedScroll}
-              className="flex lg:grid lg:grid-cols-4 gap-6 lg:gap-6 lg:divide-x lg:divide-border/60 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-4 lg:pb-0 pt-1 px-1"
+              className="flex lg:grid lg:grid-cols-4 gap-6 sm:gap-8 w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-4 pt-1 px-1"
             >
               {featuredCaseStudies.map((project, idx) => (
                 <div
                   key={project.id}
                   onClick={() => handleCaseStudySelect(project)}
-                  className={`flex flex-col justify-between text-left gap-5 group cursor-pointer transition-all duration-200 shrink-0 w-[85vw] sm:w-[380px] lg:w-auto snap-center bg-white/90 lg:bg-transparent border border-border/80 lg:border-none p-6 lg:p-0 rounded-2xl lg:rounded-none shadow-2xs lg:shadow-none hover:-translate-y-1 lg:hover:translate-y-0 ${
-                    idx > 0 ? "lg:pl-6 xl:pl-8" : ""
-                  }`}
+                  className="group relative rounded-2xl border p-6 sm:p-7 flex flex-col justify-between text-left gap-5 transition-all duration-300 hover:-translate-y-2 overflow-hidden shrink-0 w-[85vw] sm:w-[380px] lg:w-auto snap-center bg-gradient-to-b from-blue-50/70 via-white to-white border-blue-200/90 hover:border-blue-400/90 shadow-md hover:shadow-xl hover:shadow-blue-500/15 cursor-pointer"
                 >
-                  {/* Top Bar: Number Index & Role Tag */}
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-mono font-extrabold px-3 py-1 rounded-full bg-blue/10 text-blue border border-blue/20 group-hover:bg-blue group-hover:text-white transition-colors">
+                  {/* Top Gradient Accent Bar */}
+                  <div className="h-1.5 w-full absolute top-0 left-0 right-0 bg-gradient-to-r from-blue via-blue-600 to-indigo-600" />
+
+                  {/* Ambient Blur Glow Blob */}
+                  <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500 bg-blue/15" />
+
+                  {/* Header: Project Index & Role Tag */}
+                  <div className="flex items-center justify-between gap-2 border-b border-border/40 pb-3 relative z-10">
+                    <span className="w-8 h-8 rounded-lg bg-white shadow-2xs border border-border/80 flex items-center justify-center text-xs font-extrabold text-foreground/80 group-hover:text-blue transition-colors font-mono tracking-tighter">
                       0{idx + 1}
                     </span>
-                    <span className="text-[10px] font-extrabold tracking-wider uppercase text-blue bg-blue/10 border border-blue/20 px-2.5 py-0.5 rounded-full">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border shadow-2xs bg-blue/15 text-blue border-blue/30">
                       {project.role}
                     </span>
                   </div>
 
+                  {/* Business Model & Tags Line */}
+                  <div className="flex flex-col gap-2 relative z-10">
+                    <span className="text-xs font-bold text-foreground tracking-tight">
+                      {project.model}
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.categoryBadges.map((badge, bIdx) => (
+                        <span
+                          key={bIdx}
+                          className="px-2 py-0.5 rounded-full text-[10px] font-extrabold text-blue bg-blue/10 border border-blue/20 uppercase tracking-wider"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Title & Subtitle */}
-                  <div className="space-y-2 flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-blue transition-colors tracking-tight leading-snug">
+                  <div className="flex flex-col gap-2 flex-grow relative z-10">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-blue transition-colors tracking-tight leading-tight">
                       {project.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-normal">
@@ -719,30 +740,18 @@ const WorkPage: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Category Pills */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.categoryBadges.map((badge, bIdx) => (
-                      <span
-                        key={bIdx}
-                        className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold text-blue bg-blue/10 border border-blue/20 uppercase tracking-wider"
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Highlight System Pill */}
-                  <div className="pt-2 text-[11px] font-semibold text-foreground/90 flex items-center gap-2 border-t border-border/50">
+                  {/* Key System Highlight Line */}
+                  <div className="pt-2.5 border-t border-border/40 text-[11px] font-semibold text-foreground flex items-center gap-2 relative z-10">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue shrink-0 animate-pulse" />
-                    <span className="truncate">{project.model}</span>
+                    <span className="leading-snug truncate">{project.overview}</span>
                   </div>
 
-                  {/* Sleek CTA Button Link */}
-                  <div className="pt-3">
-                    <div className="w-full py-2.5 px-4 rounded-xl bg-blue/10 group-hover:bg-blue text-blue group-hover:text-white border border-blue/20 group-hover:border-blue text-xs font-extrabold uppercase tracking-wider transition-all duration-200 flex items-center justify-between shadow-2xs">
+                  {/* Action Link Footer - Highlighted CTA Button Pill */}
+                  <div className="pt-3 border-t border-border/40 flex items-center justify-between mt-auto w-full relative z-10">
+                    <span className="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all duration-200 flex items-center justify-between shadow-2xs bg-blue/10 group-hover:bg-blue text-blue group-hover:text-white border border-blue/20 group-hover:border-blue">
                       <span>View Case Study</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
                   </div>
                 </div>
               ))}

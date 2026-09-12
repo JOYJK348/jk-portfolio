@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface Project {
+  id: string;
   number: string;
   title: string;
   role: string;
@@ -20,6 +21,7 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "durkkas",
     number: "01",
     title: "Durkkas Enterprise Platform",
     role: "Team Lead",
@@ -45,6 +47,7 @@ const projects: Project[] = [
     linkStyle: "bg-blue/10 group-hover:bg-blue text-blue group-hover:text-white border border-blue/20 group-hover:border-blue",
   },
   {
+    id: "neet",
     number: "02",
     title: "NEET Academy Platform",
     role: "Independent Venture",
@@ -70,8 +73,9 @@ const projects: Project[] = [
     linkStyle: "bg-blue/10 group-hover:bg-blue text-blue group-hover:text-white border border-blue/20 group-hover:border-blue",
   },
   {
+    id: "zhi",
     number: "03",
-    title: "ZHI",
+    title: "ZHI — Learn While Playing",
     role: "Independent Venture",
     roleBadgeStyle: "bg-blue/15 text-blue border-blue/30",
     model: "B2B & B2C SaaS · Multi-Tenant",
@@ -123,6 +127,16 @@ const SampleWorkSection: React.FC = () => {
     }
   };
 
+  const handleProjectClick = (projectId: string) => {
+    if (projectId === "zhi") {
+      navigate("/case-study/zhi");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/work");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const handleNavigateToWorkPage = () => {
     navigate("/work");
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -164,7 +178,7 @@ const SampleWorkSection: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.number}
-                onClick={handleNavigateToWorkPage}
+                onClick={() => handleProjectClick(project.id)}
                 className={`group relative rounded-2xl border p-6 sm:p-7 flex flex-col justify-between text-left gap-5 transition-all duration-300 hover:-translate-y-2 overflow-hidden shrink-0 w-[86vw] sm:w-[420px] md:w-auto snap-center ${project.cardBgStyle}`}
               >
                 {/* Top Gradient Accent Bar */}

@@ -52,17 +52,32 @@ const AboutSection: React.FC = () => {
 
             {/* Paragraph Content */}
             <div className="flex flex-col gap-4 text-foreground/90 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
-              <p className="text-left">
+              <p className="text-justify">
                 I’m a <strong className="text-foreground font-bold">Software Engineer & Entrepreneur</strong> focused on building practical technology across <strong className="text-blue font-bold">AI, AI agents, automation, education</strong> and digital products.
               </p>
 
-              <p className="text-left">
+              <p className="text-justify">
                 I enjoy taking ideas and real-world problems, turning them into systems that people can actually use — from <strong className="text-foreground font-bold">business platforms and education products</strong> to intelligent workflows and AI-powered solutions.
               </p>
 
-              <p className="text-left">
+              <p className="text-justify">
                 Today, I’m continuing that journey independently while building <strong className="text-blue font-bold">Agaran</strong> — my own technology venture focused on creating useful digital products and intelligent systems.
               </p>
+            </div>
+
+            {/* ── SINGLE HIGH-IMPACT CURIOSITY INSIGHT CARD ── */}
+            <div className="pt-2">
+              <div className="group relative p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-white to-white border border-blue-200/90 hover:border-blue-400 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col gap-2 text-left">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-blue animate-pulse" />
+                  <h4 className="text-base sm:text-lg font-bold text-foreground group-hover:text-blue transition-colors leading-snug">
+                    Bridging Complex Ideas to Production
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-medium text-justify">
+                  What drives me most is taking ambitious technological concepts — across AI, automation, and full-stack systems — and shaping them into simple, high-performing software that people love using.
+                </p>
+              </div>
             </div>
 
             {/* Metadata Pill Badges */}

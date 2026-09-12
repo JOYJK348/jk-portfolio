@@ -1,5 +1,5 @@
 const WHATSAPP_NUMBER = "919080558130"; // India (+91) prefix
-const WHATSAPP_MESSAGE = "Hi Jay! I'd like to know more about your automation services.";
+const WHATSAPP_MESSAGE = "Hi Jay! I'd like to discuss a project with you.";
 
 const WhatsAppButton = () => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;

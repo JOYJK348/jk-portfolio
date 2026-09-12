@@ -7,10 +7,11 @@ interface BookDemoModalProps {
 }
 
 const projectOptions = [
-  "Business Platform / ERP",
-  "Education & LMS",
-  "AI & Automation",
+  "General Project Discussion",
   "Web Application / SaaS",
+  "Education Platform & LMS",
+  "AI & Automation",
+  "Business Systems & ERP",
   "Other Inquiry",
 ];
 
