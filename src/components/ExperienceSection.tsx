@@ -183,7 +183,7 @@ const experienceData: ExperienceItem[] = [
 ];
 
 const ExperienceSection: React.FC = () => {
-  const [activeId, setActiveId] = useState<string | null>("01");
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const toggleItem = (id: string) => {
     if (activeId === id) {

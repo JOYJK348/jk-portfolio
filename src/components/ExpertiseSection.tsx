@@ -268,7 +268,7 @@ const expertiseData: ExpertiseArea[] = [
 ];
 
 const ExpertiseSection: React.FC = () => {
-  const [activeId, setActiveId] = useState<string | null>("01");
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const toggleAccordion = (id: string) => {
     if (activeId === id) {
