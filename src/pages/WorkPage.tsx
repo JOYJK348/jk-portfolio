@@ -572,6 +572,10 @@ const WorkPage: React.FC = () => {
         left: targetScroll,
         behavior: "smooth",
       });
+      setActiveFeaturedIndex(index);
+    }
+  };
+
   const [activeCapabilityIndex, setActiveCapabilityIndex] = useState(0);
   const capabilityScrollRef = useRef<HTMLDivElement>(null);
 
