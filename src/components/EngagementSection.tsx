@@ -1,48 +1,68 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
 
-const EngagementSection = ({ onBookDemo }: { onBookDemo: () => void }) => {
-    return (
-        <section className="relative px-6 py-10 overflow-hidden bg-background">
-            {/* Soft background */}
-            <div
-                className="absolute inset-0"
-                style={{ background: "linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(0 0% 100%) 100%)" }}
-            />
-            <div className="absolute top-[-80px] right-[-60px] w-[350px] h-[350px] rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "hsl(217 91% 60%)" }} />
-            <div className="absolute bottom-[-60px] left-[-60px] w-[300px] h-[300px] rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "hsl(152 69% 50%)" }} />
+interface EngagementSectionProps {
+  onBookDemo: () => void;
+}
 
-            <div className="relative z-10 max-w-5xl mx-auto">
-                {/* CTA banner */}
-                <div className="relative rounded-3xl overflow-hidden border border-blue/10 shadow-lg shadow-blue/5">
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(217 91% 97%) 0%, hsl(152 69% 96%) 100%)" }} />
-                    <div className="relative z-10 px-8 py-10 md:px-14 flex flex-col md:flex-row items-center gap-8 justify-between">
-                        <div className="text-center md:text-left">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue/15 border border-blue/20 text-[10px] font-bold text-blue uppercase tracking-widest mb-4">
-                                🚀 Let's Build Together
-                            </div>
-                            <h3 className="text-xl md:text-2xl font-extrabold text-foreground leading-tight mb-2">
-                                Let's Build Structured Systems
-                            </h3>
-                            <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-                                If you're looking to move from manual operations to structured automation, I am open to discussions and collaborations.
-                            </p>
-                        </div>
-                        <div className="flex flex-col gap-3 shrink-0 w-full md:w-auto items-center md:items-end">
-                            <button
-                                onClick={onBookDemo}
-                                className="inline-flex items-center justify-center gap-2 bg-blue text-white font-bold px-10 py-4 rounded-xl shadow-lg shadow-blue/25 hover:shadow-xl hover:shadow-blue/35 hover:-translate-y-0.5 transition-all duration-300 text-sm w-full sm:w-auto"
-                            >
-                                🗓️ Book a Demo Session
-                            </button>
-                            <p className="text-[11px] font-semibold text-muted-foreground/80 flex items-center gap-1.5 px-2">
-                                ✉️ Further Support: <a href="mailto:joyjk348@gmail.com" className="text-blue hover:underline">joyjk348@gmail.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+const EngagementSection: React.FC<EngagementSectionProps> = ({ onBookDemo }) => {
+  const capabilityTags = ["SOFTWARE", "AI", "AUTOMATION", "EDUCATION", "PRODUCTS"];
+
+  return (
+    <section
+      id="engagement"
+      className="relative w-full surface-mint text-foreground px-4 sm:px-10 lg:px-16 xl:px-24 py-12 md:py-16 overflow-hidden border-b border-border font-sans flex flex-col items-center justify-center"
+    >
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center gap-6 sm:gap-8">
+        
+        {/* ── CENTERED HEADER BLOCK ── */}
+        <div className="flex flex-col items-center text-center gap-3">
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue/10 border border-blue/20 text-xs font-bold text-blue uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse" />
+            LET'S CONNECT
+          </div>
+
+          {/* Main Heading */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight max-w-3xl">
+            Have something worth <span className="text-blue">building?</span>
+          </h2>
+        </div>
+
+        {/* ── SUPPORTING STATEMENT ── */}
+        <p className="text-sm sm:text-base md:text-lg text-foreground/90 font-normal leading-relaxed max-w-2xl px-2">
+          Whether you have an idea, a business problem, or something you want to make better — let’s talk about it.
+        </p>
+
+        {/* ── PRIMARY CTA BUTTON ── */}
+        <div className="pt-1">
+          <button
+            onClick={onBookDemo}
+            className="group inline-flex items-center justify-center gap-2.5 bg-blue text-white hover:bg-blue-700 font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-md shadow-blue/20 hover:shadow-lg hover:shadow-blue/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+          >
+            <span>Let’s Talk</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+          </button>
+        </div>
+
+        {/* ── CAPABILITY PILL TAGS ── */}
+        <div className="pt-6 border-t border-border/60 w-full flex flex-wrap items-center justify-center gap-2">
+          {capabilityTags.map((item) => (
+            <span
+              key={item}
+              className="px-3.5 py-1 bg-blue/10 border border-blue/20 rounded-full text-xs font-bold text-blue uppercase tracking-wider"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default EngagementSection;
+
+
+
