@@ -131,6 +131,15 @@ const SampleWorkSection: React.FC = () => {
     if (projectId === "zhi") {
       navigate("/case-study/zhi");
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (projectId === "neet") {
+      navigate("/case-study/neet");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (projectId === "durkkas") {
+      navigate("/case-study/durkkas");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (projectId === "isml") {
+      navigate("/case-study/isml");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       navigate("/work");
       window.scrollTo({ top: 0, behavior: "smooth" });

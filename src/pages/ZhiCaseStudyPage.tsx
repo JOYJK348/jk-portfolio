@@ -47,7 +47,7 @@ const ZhiCaseStudyPage: React.FC = () => {
 
       {/* ── BREADCRUMB HEADER STRIP ── */}
       <div className="w-full bg-white/80 backdrop-blur-md border-b border-border/70 py-3.5 px-4 sm:px-8 lg:px-16 xl:px-24">
-        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-medium">
+        <div className="w-full max-w-[1920px] mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-medium">
           <div className="flex items-center gap-2 text-foreground/70">
             <button
               onClick={() => navigate("/")}
@@ -79,26 +79,26 @@ const ZhiCaseStudyPage: React.FC = () => {
       </div>
 
       {/* ── MAIN CONTENT CONTAINER ── */}
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-14 space-y-12 sm:space-y-16">
+      <main className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 py-8 sm:py-14 space-y-12 sm:space-y-16">
         
         {/* ── 00. HERO HEADER BLOCK ── */}
-        <section className="space-y-6 text-left">
+        <section className="space-y-6 text-center sm:text-left flex flex-col items-center sm:items-start">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue/10 border border-blue/20 text-xs font-mono font-extrabold text-blue uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-blue animate-pulse" />
             OFFICIAL TECHNICAL WHITEPAPER • CASE STUDY REPORT
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 text-center sm:text-left">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
               ZHI — <span className="text-blue">Learn While Playing</span>
             </h1>
-            <p className="text-base sm:text-xl font-medium text-foreground/85 leading-relaxed max-w-4xl">
+            <p className="text-base sm:text-xl font-medium text-foreground/85 leading-relaxed max-w-6xl">
               <strong className="text-foreground font-bold">ZHI</strong> is a production-grade, multi-portal EdTech SaaS platform purpose-built for early childhood foundation learning (Pre-KG, LKG, UKG, and 1st Standard).
             </p>
           </div>
 
           {/* Quick Badges Bar */}
-          <div className="flex flex-wrap gap-2 pt-1">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-2 pt-1">
             {["EdTech SaaS", "Pre-KG to 1st Std Foundation", "B2C Parent & B2B School Pack", "4 Role-Based Systems", "Bilingual EN+Tamil"].map((badge, idx) => (
               <span
                 key={idx}
@@ -110,29 +110,29 @@ const ZhiCaseStudyPage: React.FC = () => {
           </div>
 
           {/* High-Level Spec Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-b border-border/70 py-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-b border-border/70 py-5 w-full text-center sm:text-left">
             <div className="space-y-1">
               <span className="text-[11px] font-mono font-bold text-foreground/60 uppercase">Platform Name</span>
-              <p className="text-sm font-bold text-foreground">ZHI (Agaran EdTech)</p>
+              <p className="text-xs sm:text-sm font-bold text-foreground">ZHI (Agaran EdTech)</p>
             </div>
             <div className="space-y-1">
               <span className="text-[11px] font-mono font-bold text-foreground/60 uppercase">Target Grades</span>
-              <p className="text-sm font-bold text-foreground">Pre-KG to 1st Std (Ages 3–7)</p>
+              <p className="text-xs sm:text-sm font-bold text-foreground">Pre-KG to 1st Std (Ages 3–7)</p>
             </div>
             <div className="space-y-1">
               <span className="text-[11px] font-mono font-bold text-foreground/60 uppercase">Portals Built</span>
-              <p className="text-sm font-bold text-blue">4 Authenticated Portals</p>
+              <p className="text-xs sm:text-sm font-bold text-blue">4 Authenticated Portals</p>
             </div>
             <div className="space-y-1">
               <span className="text-[11px] font-mono font-bold text-foreground/60 uppercase">Deployment</span>
-              <p className="text-sm font-bold text-emerald-700">Live Production (Vercel + Railway)</p>
+              <p className="text-xs sm:text-sm font-bold text-emerald-700">Live Production (Vercel + Railway)</p>
             </div>
           </div>
         </section>
 
         {/* ── 4 PORTALS QUICK MAP CARDS ── */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
             <h2 className="text-xs font-mono font-extrabold uppercase tracking-widest text-blue bg-blue/10 px-3 py-1 rounded-full border border-blue/20">
               ZHI PLATFORM v3.1 — 4 PORTALS ACTIVE
             </h2>

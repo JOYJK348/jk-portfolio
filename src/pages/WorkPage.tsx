@@ -546,8 +546,20 @@ const WorkPage: React.FC = () => {
   const featuredScrollRef = useRef<HTMLDivElement>(null);
 
   const handleCaseStudySelect = (project: CaseStudyData) => {
-    if (project.id === "zhi") {
-      navigate("/case-study/zhi");
+    if (
+      [
+        "zhi",
+        "neet",
+        "durkkas",
+        "isml",
+        "internal-erp",
+        "multilingual-ai",
+        "whatsapp-automation",
+        "education-quiz",
+        "crm-system",
+      ].includes(project.id)
+    ) {
+      navigate(`/case-study/${project.id}`);
       window.scrollTo(0, 0);
     } else {
       setSelectedCaseStudy(project);
@@ -802,9 +814,9 @@ const WorkPage: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => handleCaseStudySelect(item)}
-                className="py-5 sm:py-6 px-2 sm:px-4 flex flex-col gap-2.5 group cursor-pointer transition-all duration-200 hover:bg-white/70 rounded-xl"
+                className="py-5 sm:py-6 px-3 sm:px-5 flex flex-col gap-3 group cursor-pointer transition-all duration-200 hover:bg-white/90 rounded-2xl border border-transparent hover:border-blue-200/80 shadow-2xs hover:shadow-md"
               >
-                {/* Top Line: Number + Title + Area Badge + Arrow */}
+                {/* Top Line: Number + Title + Area Badge + Explore Pill */}
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="text-xs font-mono font-extrabold px-2.5 py-0.5 rounded-full bg-blue/10 text-blue border border-blue/20 shrink-0 group-hover:bg-blue group-hover:text-white transition-colors">
@@ -815,18 +827,19 @@ const WorkPage: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span className="px-3 py-1 bg-blue/10 border border-blue/20 text-blue font-extrabold text-[10px] sm:text-xs rounded-full uppercase tracking-wider">
+                  <div className="flex items-center gap-2.5 shrink-0">
+                    <span className="hidden sm:inline-block px-3 py-1 bg-blue/10 border border-blue/20 text-blue font-extrabold text-[10px] sm:text-xs rounded-full uppercase tracking-wider">
                       {item.categoryBadges[0]}
                     </span>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-border/80 group-hover:border-blue/40 bg-white flex items-center justify-center text-foreground/60 group-hover:text-blue group-hover:bg-blue/10 transition-all duration-200 shadow-2xs">
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
+                    <span className="px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue/10 group-hover:bg-blue text-blue group-hover:text-white border border-blue/20 group-hover:border-blue transition-all flex items-center gap-1.5 shadow-2xs">
+                      <span>Explore Case Study</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </div>
 
                 {/* Description Line */}
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-normal pl-9 sm:pl-11 max-w-4xl">
+                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-normal pl-9 sm:pl-11 max-w-5xl">
                   {item.subtitle}
                 </p>
               </div>

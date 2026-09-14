@@ -27,19 +27,19 @@ const experienceData: ExperienceItem[] = [
     overview: (
       <>
         Started as a Junior Software Developer and grew into a{" "}
-        <strong className="text-emerald-900 font-bold">Technical Lead</strong>, working across{" "}
-        <strong className="text-emerald-900 font-bold">end-to-end product development</strong> for business and education platforms.
+        <strong className="text-blue font-bold">Technical Lead</strong>, working across{" "}
+        <strong className="text-blue font-bold">end-to-end product development</strong> for business and education platforms.
       </>
     ),
     bullets: [
       <>Built and maintained <strong className="text-foreground font-bold">ERP, LMS and CRM systems</strong> for real-world organizational workflows.</>,
       <>Worked across <strong className="text-foreground font-bold">frontend, backend, database, deployment</strong>, testing and production monitoring.</>,
-      <>Designed and worked with <strong className="text-emerald-800 font-bold">multi-tenant architecture</strong>, separate schemas and role-based access systems.</>,
+      <>Designed and worked with <strong className="text-blue font-bold">multi-tenant architecture</strong>, separate schemas and role-based access systems.</>,
       <>Built modules for <strong className="text-foreground font-bold">HR, CRM, education, student management</strong>, finance and internal operations.</>,
-      <>Worked on complex <strong className="text-emerald-800 font-bold">RBAC and dynamic menu/module permissions</strong>.</>,
+      <>Worked on complex <strong className="text-blue font-bold">RBAC and dynamic menu/module permissions</strong>.</>,
       <>Designed and integrated <strong className="text-foreground font-bold">REST APIs, database models</strong> and business workflows.</>,
       <>Handled <strong className="text-foreground font-bold">production deployments, debugging</strong>, monitoring and ongoing improvements.</>,
-      <>Worked closely with <strong className="text-emerald-800 font-bold">interns and junior developers</strong>, reviewing work and guiding implementation.</>,
+      <>Worked closely with <strong className="text-blue font-bold">interns and junior developers</strong>, reviewing work and guiding implementation.</>,
       <>Took <strong className="text-foreground font-bold">responsibility beyond coding</strong> — from understanding requirements to getting features into production.</>,
     ],
     techStack: [
@@ -55,11 +55,11 @@ const experienceData: ExperienceItem[] = [
     ],
     linkText: "Explore →",
     badge: "Technical Lead · Enterprise ERP & LMS",
-    accentTextStyle: "text-emerald-800",
-    activeHeaderStyle: "bg-emerald-50/90 border-l-4 border-l-emerald-600 border-emerald-200/80 text-emerald-800 shadow-xs",
-    badgeStyle: "bg-emerald-500/15 text-emerald-800 border-emerald-500/30",
-    bulletDotStyle: "bg-emerald-600",
-    highlightTextStyle: "text-emerald-800",
+    accentTextStyle: "text-blue",
+    activeHeaderStyle: "bg-blue-50/90 border-l-4 border-l-blue border-blue-200/80 text-blue shadow-xs",
+    badgeStyle: "bg-blue/15 text-blue border-blue/30",
+    bulletDotStyle: "bg-blue",
+    highlightTextStyle: "text-blue",
   },
   {
     id: "02",
@@ -111,19 +111,19 @@ const experienceData: ExperienceItem[] = [
     overview: (
       <>
         Working independently across freelance projects, client solutions and product development, turning real requirements into{" "}
-        <strong className="text-purple-900 font-bold">production-ready systems</strong>.
+        <strong className="text-blue font-bold">production-ready systems</strong>.
       </>
     ),
     bullets: [
       <>Building software solutions based on <strong className="text-foreground font-bold">actual business and product requirements</strong>.</>,
       <>Working across <strong className="text-foreground font-bold">web applications, SaaS platforms</strong>, education products and automation systems.</>,
-      <>Handling projects <strong className="text-purple-800 font-bold">end-to-end — from problem to deployment</strong>.</>,
+      <>Handling projects <strong className="text-blue font-bold">end-to-end — from problem to deployment</strong>.</>,
       <>Building custom <strong className="text-foreground font-bold">dashboards, management systems, APIs</strong> and workflow applications.</>,
-      <>Working with <strong className="text-purple-800 font-bold">AI, AI agents and automation</strong> where they provide practical value.</>,
+      <>Working with <strong className="text-blue font-bold">AI, AI agents and automation</strong> where they provide practical value.</>,
       <>Developing integrations with <strong className="text-foreground font-bold">third-party services, communication platforms</strong> and cloud infra.</>,
       <>Working directly with <strong className="text-foreground font-bold">clients and stakeholders</strong> to translate requirements into working products.</>,
       <>Managing <strong className="text-foreground font-bold">development, testing, deployment</strong> and production improvements independently.</>,
-      <>Continuously experimenting with <strong className="text-purple-800 font-bold">new technologies while prioritizing user problems</strong>.</>,
+      <>Continuously experimenting with <strong className="text-blue font-bold">new technologies while prioritizing user problems</strong>.</>,
     ],
     focusItems: [
       "AI",
@@ -136,11 +136,11 @@ const experienceData: ExperienceItem[] = [
     ],
     linkText: "Explore →",
     badge: "Independent Venture · Freelance",
-    accentTextStyle: "text-purple-700",
-    activeHeaderStyle: "bg-purple-50/90 border-l-4 border-l-purple-600 border-purple-200/80 text-purple-700 shadow-xs",
-    badgeStyle: "bg-purple-500/15 text-purple-700 border-purple-500/30",
-    bulletDotStyle: "bg-purple-600",
-    highlightTextStyle: "text-purple-700",
+    accentTextStyle: "text-blue",
+    activeHeaderStyle: "bg-blue-50/90 border-l-4 border-l-blue border-blue-200/80 text-blue shadow-xs",
+    badgeStyle: "bg-blue/15 text-blue border-blue/30",
+    bulletDotStyle: "bg-blue",
+    highlightTextStyle: "text-blue",
   },
   {
     id: "04",
@@ -333,7 +333,7 @@ const ExperienceSection: React.FC = () => {
                         <span className="text-xs font-bold uppercase tracking-wider text-foreground/70">Focus Areas:</span>
                         <div className="flex flex-wrap gap-1.5">
                           {item.focusItems.map((focus, fIdx) => (
-                            <span key={fIdx} className="text-xs font-semibold bg-white text-foreground border border-purple-200 px-3 py-1 rounded-md shadow-2xs">
+                            <span key={fIdx} className="text-xs font-semibold bg-white text-foreground border border-blue-200 px-3 py-1 rounded-md shadow-2xs">
                               {focus}
                             </span>
                           ))}
